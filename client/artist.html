@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Page</title>
+    <link rel="stylesheet" href="/style/artist.css"> <!-- Include external stylesheet -->
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>{{.Data.Artist.Name}}</h1> <!-- Display artist name -->
+        <img src="{{.Data.Artist.Image}}" alt="Artist Image"> <!-- Display artist image -->
+        <p><strong>Creation Date:</strong> {{.Data.Artist.CreationDate}}</p> <!-- Display artist creation date -->
+        <p><strong>First Album:</strong> {{.Data.Artist.FirstAlbum}}</p> <!-- Display artist's first album -->
+        <h2>Members: </h2>
+        <ul>
+            {{range .Data.Artist.Members}}
+            <li>{{.}}</li> <!-- Display each member in a list item -->
+            {{end}}
+        </ul>
+        <h2>Locations: </h2>
+        <ul>
+            {{range .Data.Locations.Locations}}
+            <li>{{.}}</li> <!-- Display each location in a list item -->
+            {{end}}
+        </ul>
+        <h2>Concert Dates: </h2>
+        <ul>
+            {{range .Data.Relations.DatesLocations}}
+            <li>{{.}}</li> <!-- Display each concert date in a list item -->
+            {{end}}
+        </ul>
+    </div>
+</body>
+
+</html>

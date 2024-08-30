@@ -1,0 +1,81 @@
+/*******************************/
+/*    client/artist.html     */
+/*******************************/
+
+/* Resetting default styles for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: rgb(3, 59, 113);
+  background: radial-gradient(
+      circle,
+      rgba(3, 59, 113, 1) 0%,
+      rgba(4, 34, 62, 1) 100%
+  );
+}
+
+/* Container styling */
+.container {
+  max-width: 800px;
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px;
+  background-color: #fff; /* White background */
+  border-radius: 30px; /* Rounded corners */
+}
+
+/* Heading 1 styling */
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Image styling */
+img {
+  max-width: 100%; /* Responsive images */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px;
+  border-radius: 8px; /* Rounded corners for images */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+/* Paragraph styling */
+p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Heading 2 styling */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* List styling */
+ul {
+  list-style-type: none; /* Remove list bullets */
+}
+
+/* List item styling */
+li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Link styling */
+a {
+  color: #007bff; /* Blue link color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Hover effect on links */
+a:hover {
+  text-decoration: underline; /* Underline on hover */
+}

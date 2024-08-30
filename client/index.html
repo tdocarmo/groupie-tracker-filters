@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/style/style.css" />
+    <title>Groupie Tracker</title>
+  </head>
+
+  <body>
+    <script>
+      function FlipCard(card) {
+        card.classList.toggle("flip");
+      }
+    </script>
+
+    <div class="main">
+      <div class="container">
+        <div class="filter-form">
+          <form method="GET" action="/">
+            <!-- Date de création -->
+            <label for="minCreationDate">Min Creation Date:</label>
+            <input
+              type="range"
+              id="minCreationDate"
+              name="minCreationDate"
+              min="1900"
+              max="2024"
+              step="1"
+              value="1900"
+            />
+            <label for="maxCreationDate">Max Creation Date:</label>
+            <input
+              type="range"
+              id="maxCreationDate"
+              name="maxCreationDate"
+              min="1900"
+              max="2024"
+              step="1"
+              value="2024"
+            />
+
+            <!-- Date du premier album -->
+            <label for="minFirstAlbumDate">Min First Album Date:</label>
+            <input
+              type="range"
+              id="minFirstAlbumDate"
+              name="minFirstAlbumDate"
+              min="1900"
+              max="2024"
+              step="1"
+              value="1900"
+            />
+            <label for="maxFirstAlbumDate">Max First Album Date:</label>
+            <input
+              type="range"
+              id="maxFirstAlbumDate"
+              name="maxFirstAlbumDate"
+              min="1900"
+              max="2024"
+              step="1"
+              value="2024"
+            />
+
+            <!-- Nombre de membres -->
+            <label>Nombre de membres:</label><br>
+            <div class="checkbox-group">
+              <input type="checkbox" id="members1" name="members" value="1">
+              <label for="members1">1</label>
+              <input type="checkbox" id="members2" name="members" value="2">
+              <label for="members2">2</label>
+              <input type="checkbox" id="members3" name="members" value="3">
+              <label for="members3">3</label>
+              <input type="checkbox" id="members4" name="members" value="4">
+              <label for="members4">4</label>
+              <input type="checkbox" id="members5" name="members" value="5">
+              <label for="members5">5</label>
+              <input type="checkbox" id="members6" name="members" value="6">
+              <label for="members6">6</label>
+              <input type="checkbox" id="members7" name="members" value="7">
+              <label for="members7">7</label>
+              <input type="checkbox" id="members8" name="members" value="8">
+              <label for="members8">8</label>
+            </div>
+
+            <!-- Champ de recherche des localisations -->
+            <label for="concertLocations">Concert Locations:</label>
+            <input
+              type="text"
+              id="concertLocations"
+              name="concertLocations"
+              placeholder="Enter locations separated by commas"
+            />
+
+            <button type="submit">Filter</button>
+          </form>
+        </div>
+
+        <!-- Display Cards -->
+        <div class="grid">
+          {{range .Data}}
+          <div class="card" onclick="FlipCard(this)">
+            <div class="card-content">
+              <div class="card-front">
+                <span class="card-title">{{.Name}}</span>
+                <img src="{{.Image}}" alt="Band Image" class="card-image" />
+              </div>
+              <div class="card-back">
+                <div style="display: flex; flex-direction: column; height: 95%">
+                  <p>
+                    <strong>{{.Name}}</strong>
+                    <br />was created in<br />
+                    <strong>{{.CreationDate}}</strong>
+                    <br />and their first album was released in<br />
+                    <strong>{{.FirstAlbum}}</strong>
+                  </p>
+                  <button><a href="/artist/{{.ID}}">MORE</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{end}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
